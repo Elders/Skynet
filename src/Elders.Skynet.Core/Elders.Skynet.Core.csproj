@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA30427F-0FDF-4357-8F33-73679A663215}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Elders.Skynet.Core</RootNamespace>
+    <AssemblyName>Elders.Skynet.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers\Processes\TeardownHandler.cs" />
+    <Compile Include="Processes\BasicRunner.cs" />
+    <Compile Include="Processes\BlockingRunner.cs" />
+    <Compile Include="Contracts\Processes\RedirectOutput.cs" />
+    <Compile Include="Contracts\Processes\Shutdown.cs" />
+    <Compile Include="Contracts\System\RedirectHostOutput.cs" />
+    <Compile Include="Handlers\Packages\Executable.cs" />
+    <Compile Include="Handlers\Packages\PackageExplorer.cs" />
+    <Compile Include="Handlers\Processes\RedirectOutputHandler.cs" />
+    <Compile Include="Handlers\Processes\ShutdownHandler.cs" />
+    <Compile Include="Handlers\System\RedirectHostOutputHandler.cs" />
+    <Compile Include="OSApi\Win32.cs" />
+    <Compile Include="Output\BasicOutput.cs" />
+    <Compile Include="Output\IOutput.cs" />
+    <Compile Include="Output\OutputAppender.cs" />
+    <Compile Include="Output\StringObserver.cs" />
+    <Compile Include="Output\WrapedStreamWriter.cs" />
+    <Compile Include="Packages\FileDictionary.cs" />
+    <Compile Include="Packages\PackageMeta.cs" />
+    <Compile Include="Processes\ISkynetRunner.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="SkynetClient.cs" />
+    <Compile Include="SkynetHost.cs" />
+    <Compile Include="Contracts\Processes\GetAllProcesses.cs" />
+    <Compile Include="Contracts\Packages\ListAllPackages.cs" />
+    <Compile Include="Contracts\Packages\RegisterPackage.cs" />
+    <Compile Include="Contracts\Processes\HeartBeat.cs" />
+    <Compile Include="Contracts\Processes\Run.cs" />
+    <Compile Include="Handlers\Processes\GetAllProcesses.cs" />
+    <Compile Include="Handlers\Packages\RegisterPackageHandler.cs" />
+    <Compile Include="Handlers\Packages\ListAllPackagesHandler.cs" />
+    <Compile Include="Handlers\Processes\HeartBeatHandler.cs" />
+    <Compile Include="Packages\BasicPackageRepository.cs" />
+    <Compile Include="Packages\IPackageRepository.cs" />
+    <Compile Include="Processes\SkynetProcess.cs" />
+    <Compile Include="Processes\SkynetProcessInfo.cs" />
+    <Compile Include="Util\SyncWait.cs" />
+    <Compile Include="Util\WriteToOutPutExtensions.cs" />
+    <Compile Include="Handlers\Processes\RunProcessHandler.cs" />
+    <Compile Include="Processes\SkynetProcessRegistry.cs" />
+    <Compile Include="Util\BlockingOperation.cs" />
+    <Compile Include="Handlers\System\WriteToOutputHandler.cs" />
+    <Compile Include="IMessageContext.cs" />
+    <Compile Include="Contracts\System\WriteToOutput.cs" />
+    <Compile Include="MessageContext.cs" />
+    <Compile Include="Util\BasicContainer.cs" />
+    <Compile Include="Util\BasicDictionarySerializer.cs" />
+    <Compile Include="Util\CompletedObserver.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="SkynetPublisher.cs" />
+    <Compile Include="SkynetConnection.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="IPublisher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ObservableSubscription.cs" />
+    <Compile Include="MessageHeadersAppender.cs" />
+    <Compile Include="Transport\IClient.cs" />
+    <Compile Include="Transport\IConnection.cs" />
+    <Compile Include="Transport\IServer.cs" />
+    <Compile Include="Transport\BasicMessage.cs" />
+    <Compile Include="Util\ConcurrentList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
