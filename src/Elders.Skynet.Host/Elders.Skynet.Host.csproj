@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\InterfaceExecutableLocator.cs" />
-    <Compile Include="Packages\PackageExplorer.cs" />
-    <Compile Include="Packages\SimpleExecutableLocator.cs" />
+    <Compile Include="InterfaceExecutableLocator.cs" />
+    <Compile Include="PackageExplorer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleExecutableLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
