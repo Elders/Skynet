@@ -17,6 +17,8 @@ namespace Elders.Skynet.Core.Handlers.Processes
             var process = Registry.GetAllProcesses().SingleOrDefault(x => x.Name == message.Payload.ProcessName);
             if (process != null)
                 Registry.SubscrbeForOutput(process, new StringObserver(x => message.Context.Respond(new WriteToOutput(x))));
+            else
+                log.ErrorFormat("Can not find process with name '{0}'", message.Payload.ProcessName);
         }
     }
 }

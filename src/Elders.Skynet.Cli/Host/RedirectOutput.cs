@@ -12,7 +12,7 @@ namespace Elders.Skynet.Cli.Host
             client.Send(new Core.Contracts.Processes.RedirectOutput(Client));
         }
 
-        [Option('c', "client", HelpText = "Specifies the process friendly name.")]
+        [Option('i', "instance", Required = true, HelpText = "Specifies the unique process instance name.")]
         public string Client { get; set; }
     }
 }

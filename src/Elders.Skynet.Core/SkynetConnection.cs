@@ -83,7 +83,8 @@ namespace Elders.Skynet.Core
                 basicMessage.Sender(HostName);
                 basicMessage.Id(id);
                 basicMessage.ResponseId(responseId);
-                connection.SendMessage(basicMessage);
+                if (connection.Connected)
+                    connection.SendMessage(basicMessage);
             }
             catch (Exception ex)
             {

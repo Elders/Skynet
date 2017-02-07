@@ -2,6 +2,7 @@
 using CommandLine;
 using Elders.Skynet.Core;
 using Elders.Skynet.Core.Contracts;
+using System.Linq;
 
 namespace Elders.Skynet.Cli.Host
 {

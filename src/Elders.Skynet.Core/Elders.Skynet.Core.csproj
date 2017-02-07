@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Packages\GetPackageInfo.cs" />
+    <Compile Include="Handlers\Packages\GetPackageInfoHandler.cs" />
     <Compile Include="Handlers\Processes\TeardownHandler.cs" />
     <Compile Include="Processes\BasicRunner.cs" />
     <Compile Include="Processes\BlockingRunner.cs" />

@@ -19,7 +19,7 @@ namespace Elders.Skynet.Cli.Host
         [Option('p', "package", Required = true, HelpText = "Specifies the package name.")]
         public string PackageName { get; set; }
 
-        [Option('n', "name", Required = true, HelpText = "Specifies the process name.")]
+        [Option('i', "instance", Required = true, HelpText = "Specifies the unique process instance name.")]
         public string ProcessName { get; set; }
     }
 }

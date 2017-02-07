@@ -79,7 +79,7 @@ namespace Elders.Skynet.Transport.Tcp
         public void SendMessage(BasicMessage message)
         {
             if (closed)
-                throw new InvalidOperationException("Socket is closed");
+                throw new ExecutionEngineException("Socket is closed");
 
             using (var stream = protocol.ToStream(new BasicMessage[] { message }))
             {
@@ -150,7 +150,14 @@ namespace Elders.Skynet.Transport.Tcp
         {
             foreach (var item in observers)
             {
-                item.OnCompleted();
+                try
+                {
+                    item.OnCompleted();
+                }
+                catch (Exception ex)
+                {
+                    log.Warn("Unexpected exception. All observers should handle internal exceptions");
+                }
             }
         }
 

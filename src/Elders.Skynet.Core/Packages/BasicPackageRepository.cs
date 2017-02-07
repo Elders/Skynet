@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Elders.Skynet.Core.Packages
 {
@@ -21,7 +22,7 @@ namespace Elders.Skynet.Core.Packages
         public PackageMeta GetPackage(string name)
         {
             var files = Directory.GetFiles(Path.Combine(BaseDirectory, name));
-            return new PackageMeta(Path.Combine(BaseDirectory, name), name);
+            return new PackageMeta(Path.Combine(BaseDirectory, name), name, files.ToList());
         }
 
         public IEnumerable<PackageMeta> GetPackages()

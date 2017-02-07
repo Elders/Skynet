@@ -57,6 +57,7 @@
     <Compile Include="Host\Clear.cs" />
     <Compile Include="Host\Exit.cs" />
     <Compile Include="Host\IHostCommand.cs" />
+    <Compile Include="Host\PackageInfo.cs" />
     <Compile Include="Host\Packages.cs" />
     <Compile Include="Host\Processes.cs" />
     <Compile Include="Host\RedirectOutput.cs" />
