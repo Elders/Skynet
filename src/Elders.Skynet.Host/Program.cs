@@ -15,7 +15,9 @@ namespace Elders.Skynet.Host
 
             log4net.Config.XmlConfigurator.Configure();
             IServer server = new TcpServer(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 25672));
-            var skynet = new SkynetHost("Skynet", server, new PackageExplorer(new SimpleExecutableLocator("127.0.0.1", 25672)));
+            var locator = new ExecutableLocator("127.0.0.1", 25672);
+            var packageExplorer = new PackageExplorer(new NugetPackageExplorer(locator), new FilePackageExplorer(locator));
+            var skynet = new SkynetHost("Skynet", server, packageExplorer);
             skynet.Start();
             new ManualResetEvent(false).WaitOne(Timeout.Infinite);
         }

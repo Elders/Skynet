@@ -7,6 +7,8 @@ namespace Elders.Skynet.Core.Handlers.Packages
     {
         IExectuable GetExecutable(PackageMeta package);
 
+        bool Recognise(PackageMeta package);
+
         Dictionary<string, string> GetMetadata(PackageMeta package);
     }
 }

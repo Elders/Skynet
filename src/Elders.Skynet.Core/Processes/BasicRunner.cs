@@ -1,13 +1,13 @@
-﻿using System.Threading;
+﻿using Elders.Skynet.Models;
 
 namespace Elders.Skynet.Core.Processes
 {
 
-    public class BasicRunner : ISkynetRunner
+    public class BasicModel : T800
     {
-        private ISkynetRunner runner;
+        private T800 runner;
 
-        public BasicRunner(ISkynetRunner runner)
+        public BasicModel(T800 runner)
         {
             this.runner = runner;
         }
@@ -18,16 +18,16 @@ namespace Elders.Skynet.Core.Processes
                 runner.Command(args);
         }
 
-        public void Start(params string[] args)
+        public void PowerUp(params string[] args)
         {
             if (runner != null)
-                runner.Start(args);
+                runner.PowerUp(args);
         }
 
-        public void Stop()
+        public void Shutdown(params string[] args)
         {
             if (runner != null)
-                runner.Stop();
+                runner.Shutdown();
         }
     }
 }

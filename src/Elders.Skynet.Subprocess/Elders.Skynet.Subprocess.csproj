@@ -54,7 +54,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleClient.cs" />
+    <Compile Include="SkynetModuleClient.cs" />
+    <Compile Include="SimpleModuleClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Elders.Skynet.Subprocess.exe.config">
@@ -66,6 +67,10 @@
     <ProjectReference Include="..\Elders.Skynet.Core\Elders.Skynet.Core.csproj">
       <Project>{aa30427f-0fdf-4357-8f33-73679a663215}</Project>
       <Name>Elders.Skynet.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Elders.Skynet.Models\Elders.Skynet.Models.csproj">
+      <Project>{4eef94af-231d-4f12-93cb-6c11c861fa88}</Project>
+      <Name>Elders.Skynet.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Elders.Skynet.Transport.Tcp\Elders.Skynet.Transport.Tcp.csproj">
       <Project>{b88aa828-b73a-4909-b065-3e215b3e1a50}</Project>

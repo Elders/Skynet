@@ -6,6 +6,7 @@ using Elders.Skynet.Core.Contracts.System;
 using Elders.Skynet.Core.Processes;
 using Elders.Skynet.Core.Transport;
 using Elders.Skynet.Core.Util;
+using Elders.Skynet.Models;
 
 namespace Elders.Skynet.Core
 {
@@ -31,13 +32,13 @@ namespace Elders.Skynet.Core
         {
         }
 
-        public SkynetClient(string clientName, IClient client, ISkynetRunner runner)
+        public SkynetClient(string clientName, IClient client, T800 runner)
         {
             this.client = client;
             ClientName = clientName;
             container = new BasicContainer();
             container.Register(() => this);
-            container.Register<ISkynetRunner>(() => new BasicRunner(runner));
+            container.Register<T800>(() => new BasicModel(runner));
             timer = new Timer((x) => { if (SkynetConnection != null) SkynetConnection.SendMessage(new Heartbeat(Process.GetCurrentProcess().Id)); }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(10));
             subscription = client.Subscribe(this);
         }

@@ -3,6 +3,7 @@ using CommandLine;
 using Elders.Skynet.Core;
 using Elders.Skynet.Core.Contracts;
 using System.Linq;
+using Elders.Skynet.Cli.TableBuilder;
 
 namespace Elders.Skynet.Cli.Host
 {
@@ -16,11 +17,14 @@ namespace Elders.Skynet.Cli.Host
             try
             {
                 var result = client.Send(new Core.Contracts.Packages.GetAllPackages(), TimeSpan.FromSeconds(10));
-                Console.WriteLine("{0} \t {1}", "Name", "Executable");
-                foreach (var item in result.Packages)
+                var table = new Table();
+                table.AddRow("Package Name", "Package Location");
+                foreach (var item in result.Packages.OrderBy(x => x.Name))
                 {
-                    Console.WriteLine("{0} \t {1}", item.Name, item.Location);
+                    table.AddRow(item.Name, item.Location);
                 }
+                Console.Write(table.Output());
+                Console.WriteLine();
             }
             catch (TimeoutException ex)
             {

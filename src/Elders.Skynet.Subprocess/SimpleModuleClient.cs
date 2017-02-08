@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using CommandLine;
 using Elders.Skynet.Core;
-using Elders.Skynet.Core.Output;
 using Elders.Skynet.Transport.Tcp;
 
 namespace Elders.Skynet.Subprocess
 {
-
     [Verb("simple-client")]
     public class SimpleClient : ICliCommand
     {
@@ -21,8 +14,6 @@ namespace Elders.Skynet.Subprocess
 
         public void Execute()
         {
-            //   throw new Exception("aasd");
-
             var tcpClient = new TcpClient(ServerLocation, ServerPort);
             var skynet = new SkynetClient("Client", tcpClient, null);
             skynet.Connect(true, false, TimeSpan.FromSeconds(60));
@@ -40,10 +31,7 @@ namespace Elders.Skynet.Subprocess
                 Environment.Exit(0);
             }
 
-            //  runner.Start("");
-
             Environment.Exit(1);
-
         }
 
         [Value(0)]

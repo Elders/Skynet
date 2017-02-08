@@ -1,13 +1,14 @@
-﻿using System.Threading;
+﻿using Elders.Skynet.Models;
+using System.Threading;
 
 namespace Elders.Skynet.Core.Processes
 {
 
-    public class BlockingRunner : ISkynetRunner
+    public class BlockingModel : T800
     {
         private ManualResetEvent evnt;
 
-        public BlockingRunner()
+        public BlockingModel()
         {
             evnt = new ManualResetEvent(false);
         }
@@ -17,13 +18,13 @@ namespace Elders.Skynet.Core.Processes
 
         }
 
-        public void Start(params string[] args)
+        public void PowerUp(params string[] args)
         {
             evnt.Reset();
             evnt.WaitOne(Timeout.Infinite);
         }
 
-        public void Stop()
+        public void Shutdown(params string[] args)
         {
             evnt.Set();
             evnt.Dispose();

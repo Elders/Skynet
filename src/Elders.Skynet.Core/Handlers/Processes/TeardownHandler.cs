@@ -1,6 +1,7 @@
 ﻿using System;
 using Elders.Skynet.Core.Contracts.Processes;
 using Elders.Skynet.Core.Processes;
+using Elders.Skynet.Models;
 
 namespace Elders.Skynet.Core.Handlers.Processes
 {
@@ -8,13 +9,13 @@ namespace Elders.Skynet.Core.Handlers.Processes
     {
         static log4net.ILog log = log4net.LogManager.GetLogger(typeof(TeardownHandler));
 
-        public ISkynetRunner Runner { get; set; }
+        public T800 Terminator { get; set; }
 
         public SkynetClient Client { get; set; }
 
         public void Handle(Message<Teardown> message)
         {
-            Runner.Stop();
+            Terminator.Shutdown();
             log.Info("Stoppping.");
             log.Info("Exiting...");
             Client.Disconnect();

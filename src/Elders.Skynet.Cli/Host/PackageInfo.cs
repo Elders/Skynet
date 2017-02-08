@@ -3,6 +3,7 @@ using CommandLine;
 using Elders.Skynet.Core;
 using Elders.Skynet.Core.Contracts;
 using System.Linq;
+using Elders.Skynet.Cli.TableBuilder;
 
 namespace Elders.Skynet.Cli.Host
 {
@@ -32,10 +33,13 @@ namespace Elders.Skynet.Cli.Host
                 if (result.Metadata != null && result.Metadata.Any())
                 {
                     Console.WriteLine("Metadata: \t");
+                    var table = new Table();
                     foreach (var item in result.Metadata)
                     {
-                        Console.WriteLine("{0}: \t {1}", item.Key, item.Value);
+                        table.AddRow(item.Key, item.Value);
+                        //Console.WriteLine("{0}: \t {1}", item.Key, item.Value);
                     }
+                    Console.WriteLine(table.Output());
                     Console.WriteLine();
                 }
             }

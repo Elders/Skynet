@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transport", "Transport", "{6B2A5E4E-45C9-4AB4-9533-08B17B57E495}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elders.Skynet.Transport.Tcp.Sample.Server", "Elders.Skynet.Transport.Tcp.Server\Elders.Skynet.Transport.Tcp.Sample.Server.csproj", "{5DF41914-332C-45CF-9F1D-00D562115D5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elders.Skynet.Transport.Tcp.Tests", "Elders.Skynet.Transport.Tcp.Tests\Elders.Skynet.Transport.Tcp.Tests.csproj", "{0D646AA4-BF6B-43B5-8F9C-D97225FC1E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elders.Skynet.ImdbService.Module", "Elders.Skynet.ImdbService.Module\Elders.Skynet.ImdbService.Module.csproj", "{DB521D02-C929-4C99-BFA3-94DC5A3755D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elders.Skynet.Models", "Elders.Skynet.Models\Elders.Skynet.Models.csproj", "{4EEF94AF-231D-4F12-93CB-6C11C861FA88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{0D646AA4-BF6B-43B5-8F9C-D97225FC1E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D646AA4-BF6B-43B5-8F9C-D97225FC1E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D646AA4-BF6B-43B5-8F9C-D97225FC1E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB521D02-C929-4C99-BFA3-94DC5A3755D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB521D02-C929-4C99-BFA3-94DC5A3755D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB521D02-C929-4C99-BFA3-94DC5A3755D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB521D02-C929-4C99-BFA3-94DC5A3755D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EEF94AF-231D-4F12-93CB-6C11C861FA88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEF94AF-231D-4F12-93CB-6C11C861FA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEF94AF-231D-4F12-93CB-6C11C861FA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEF94AF-231D-4F12-93CB-6C11C861FA88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +92,6 @@ Global
 		{44DE9F2E-6E2C-4239-83B8-D46118B55750} = {FC0A5C49-C88C-433D-A999-FCCDE6AB2183}
 		{5DF41914-332C-45CF-9F1D-00D562115D5C} = {FC0A5C49-C88C-433D-A999-FCCDE6AB2183}
 		{0D646AA4-BF6B-43B5-8F9C-D97225FC1E24} = {6B2A5E4E-45C9-4AB4-9533-08B17B57E495}
+		{DB521D02-C929-4C99-BFA3-94DC5A3755D1} = {F647402D-AFA7-4478-B8C1-0EFFC41A574F}
 	EndGlobalSection
 EndGlobal

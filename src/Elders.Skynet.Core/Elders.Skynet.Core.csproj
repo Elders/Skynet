@@ -70,7 +70,6 @@
     <Compile Include="Output\WrapedStreamWriter.cs" />
     <Compile Include="Packages\FileDictionary.cs" />
     <Compile Include="Packages\PackageMeta.cs" />
-    <Compile Include="Processes\ISkynetRunner.cs" />
     <Compile Include="Serialization\JsonSerializer.cs" />
     <Compile Include="SkynetClient.cs" />
     <Compile Include="SkynetHost.cs" />
@@ -117,7 +116,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Elders.Skynet.Models\Elders.Skynet.Models.csproj">
+      <Project>{4eef94af-231d-4f12-93cb-6c11c861fa88}</Project>
+      <Name>Elders.Skynet.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
