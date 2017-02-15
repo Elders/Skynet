@@ -19,7 +19,7 @@ namespace Elders.Skynet.Core.Handlers.Processes
             log.Info("Stoppping.");
             log.Info("Exiting...");
             Client.Disconnect();
-            Environment.Exit(1);
+            Environment.Exit(0);
         }
     }
 }

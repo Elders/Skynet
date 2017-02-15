@@ -59,10 +59,6 @@
       <Project>{4EEF94AF-231D-4F12-93CB-6C11C861FA88}</Project>
       <Name>Elders.Skynet.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Elders.Skynet.Subprocess\Elders.Skynet.Subprocess.csproj">
-      <Project>{ef03dab4-8ff6-488a-8d10-0c4dc9e18d85}</Project>
-      <Name>Elders.Skynet.Subprocess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

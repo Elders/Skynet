@@ -84,19 +84,34 @@ namespace Elders.Skynet.Transport.Tcp
             using (var stream = protocol.ToStream(new BasicMessage[] { message }))
             {
                 stream.Position = 0;
-                while (stream.Position < stream.Length)
+                try
                 {
-                    var remainingBytes = stream.Length - stream.Position;
-                    var bufferSize = (remainingBytes < maxBufferSize) ? (int)remainingBytes : maxBufferSize;
-                    var buffer = new byte[bufferSize];
-                    stream.Read(buffer, 0, bufferSize);
-                    var sent = clientSocket.Send(buffer);
-                    if (sent != bufferSize)
+                    while (stream.Position < stream.Length)
                     {
-                        log.WarnFormat("Sent less bytes({0}) than the buffer size({1}).", sent, bufferSize);
-                        var bytesToReturn = (stream.Position - bufferSize) + sent;
-                        stream.Position = bytesToReturn;
+                        var remainingBytes = stream.Length - stream.Position;
+                        var bufferSize = (remainingBytes < maxBufferSize) ? (int)remainingBytes : maxBufferSize;
+                        var buffer = new byte[bufferSize];
+                        stream.Read(buffer, 0, bufferSize);
+                        var sent = clientSocket.Send(buffer);
+                        if (sent != bufferSize)
+                        {
+                            log.WarnFormat("Sent less bytes({0}) than the buffer size({1}).", sent, bufferSize);
+                            var bytesToReturn = (stream.Position - bufferSize) + sent;
+                            stream.Position = bytesToReturn;
+                        }
                     }
+                }
+                catch (SocketException ex)
+                {
+                    log.Warn("Socket error.", ex);
+                    OnException(ex);
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    log.Fatal("Unexpected error.", ex);
+                    OnException(ex);
+                    Close();
                 }
             }
         }
